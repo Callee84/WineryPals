@@ -15,6 +15,7 @@
 a {
     color: #555555;
     transition: color ease-in-out 0.3s;
+    text-decoration: none;
   }
   
 a:hover {
@@ -22,12 +23,12 @@ a:hover {
   }
   
 a:hover i {
-    color: #c2cab7;
+    color: #570101;
     transition: color ease-in-out 0.3s;
   }
   
 i {
-    color: #cfced3;
+    color: #c2cab7;
     font-size: 1.6rem;
     padding: 7px;
     vertical-align: middle;
