@@ -6,7 +6,9 @@ import "./api/axiosDefaults";
 import SignUpForm from './pages/auth/SignUpForm';
 import LogInForm from './pages/auth/LogInForm';
 
+
 function App() {
+
   return (
     <div className={styles.App}>
       <NavBar />

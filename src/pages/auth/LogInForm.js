@@ -14,8 +14,11 @@ import styles from "../../styles/SignUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import axios from "axios";
+import { useSetCurrentUser } from "../../context/CurrentUser";
 
 function LogInForm() {
+  const setCurrentUser = useSetCurrentUser();
+
   const [logInData, setLogInData] = useState ({
     username:"",
     password:"",
@@ -29,7 +32,8 @@ function LogInForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("dj-rest-auth/login", logInData);
+      const {data} = await axios.post("dj-rest-auth/login", logInData);
+      setCurrentUser(data.user)
       history.push("/");
     } catch (err) {
       setErrors(err.response?.data);
