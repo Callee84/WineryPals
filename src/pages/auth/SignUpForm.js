@@ -43,7 +43,7 @@ return (
         <Container className={`${appStyles.Content} p-4 `}>
           <h1 className={styles.Header}>Sign up</h1>
           <br />
-          <p>Then you get access to all the features and get to meet fellow Winepals!</p>
+          <p className={styles.FormP}>Then you get access to all the features and get to meet fellow Winerypals!</p>
 
 
           <Form onSubmit={handleSubmit}>
@@ -54,6 +54,7 @@ return (
                 placeholder="Username"
                 name="username"
                 value={username}
+                className={styles.Input}
                 onChange={handleChange}
               />
             </Form.Group>
@@ -70,6 +71,7 @@ return (
                 placeholder="Password" 
                 name="password"
                 value={password}
+                className={styles.Input}
                 onChange={handleChange}
                 />
               </Form.Group>
@@ -84,6 +86,7 @@ return (
                 placeholder="Confirm Password"
                 name="password_confirm"
                 value={password_confirm}
+                className={styles.Input}
                 onChange={handleChange} 
                 />
               </Form.Group>
@@ -119,7 +122,7 @@ return (
         className={`my-auto d-none d-md-block p-2 ${styles.SignUpCol}`}
       >
         <Image
-          className={`${appStyles.FillerImage}`}
+          className={`${appStyles.SideImage}`}
           src={
             "https://res.cloudinary.com/drlxdx65k/image/upload/ar_16:9,c_fill,e_sharpen,g_auto,h_350,w_450/v1672415328/winerypals_signup_aud6mm.jpg"
           }
