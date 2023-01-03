@@ -10,7 +10,7 @@ import useClickOutside from '../hooks/useClickOutside';
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
-  const setCurrentUser = useSetCurrentUser;
+  const setCurrentUser = useSetCurrentUser();
 
   const {expanded, setExpanded, ref} = useClickOutside(); 
 
@@ -65,14 +65,7 @@ const NavBar = () => {
       <i class="fa-solid fa-stream" />Feed
     </NavLink>
     {wineCellar}
-    {/* <NavLink
-      className={styles.NavLink}
-      activeClassName={styles.Active} 
-      to="/wines"
-      >
-      <i class="fa-solid fa-wine-bottle" /> 
-     Wine Cellar
-    </NavLink> */}
+    
     <NavLink
       className={styles.NavLink}
       to={`/profiles/${currentUser?.profile_id}`}
@@ -95,7 +88,7 @@ const NavBar = () => {
       activeClassName={styles.Active}
       to="/signin"
       >
-      <i className="fas fa-sign-in-alt"></i>Sign in
+      <i className="fas fa-sign-in-alt"></i>Log in
     </NavLink>
     <NavLink
       className={styles.NavLink}
