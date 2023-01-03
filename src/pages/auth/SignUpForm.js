@@ -14,30 +14,30 @@ const SignUpForm = () => {
     password: "",
     password_confirm: "",
   });
-const { username, password, password_confirm } = signUpData;
+  const { username, password, password_confirm } = signUpData;
 
-const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({});
 
-const history = useHistory();
+  const history = useHistory();
 
-const handleChange = (event) => {
-  setSignUpData({
-    ...signUpData,
-    [event.target.name]: event.target.value,
-  });
-};
+  const handleChange = (event) => {
+    setSignUpData({
+      ...signUpData,
+      [event.target.name]: event.target.value,
+    });
+  };
 
-const handleSubmit = async (event) => {
-  event.preventDefault();
-  try {
-    await axios.post("/dj-rest-auth/registration/", signUpData);
-    history.push("/signin");
-  } catch (err) {
-    setErrors(err.response?.data);
-  }
-};
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await axios.post("/dj-rest-auth/registration/", signUpData);
+      history.push("/signin");
+    } catch (err) {
+      setErrors(err.response?.data);
+    }
+  };
 
-return (
+  return (
     <Row className={styles.Row}>
       <Col className="my-auto py-2 p-md-2" md={6}>
         <Container className={`${appStyles.Content} p-4 `}>
