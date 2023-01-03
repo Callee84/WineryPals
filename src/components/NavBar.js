@@ -45,8 +45,8 @@ const NavBar = () => {
     <NavLink
       className={styles.NavLink}
       activeClassName={styles.Active}
-      to="/wine/">
-        <i className="fa-regular fa-square-plus"></i> Add post
+      to="/wines/">
+        <i className="fa-solid fa-wine-bottle"></i> Wine Cellar
     </NavLink>
   )
 
@@ -64,12 +64,15 @@ const NavBar = () => {
       to="/feed">
       <i class="fa-solid fa-stream" />Feed
     </NavLink>
-    <NavLink
+    {wineCellar}
+    {/* <NavLink
       className={styles.NavLink}
       activeClassName={styles.Active} 
-      to="/wine">
-      <i class="fa-solid fa-wine-bottle" />Wine Cellar
-    </NavLink>
+      to="/wines"
+      >
+      <i class="fa-solid fa-wine-bottle" /> 
+     Wine Cellar
+    </NavLink> */}
     <NavLink
       className={styles.NavLink}
       to={`/profiles/${currentUser?.profile_id}`}
@@ -82,14 +85,7 @@ const NavBar = () => {
     </NavLink>
     <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
         <i className="fas fa-sign-out-alt"></i>Sign out
-    </NavLink>  
-    {/* <NavLink
-      className={styles.NavLink}
-      to="/"
-      onClick={handleSignOut}>
-      <i class="fa-solid fa-right-from-bracket"/>
-      Log out
-    </NavLink> */}
+    </NavLink> 
     </>
 
   const loggedOutNavBar = (

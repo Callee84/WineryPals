@@ -1,0 +1,24 @@
+.PostDetails {
+    background-color: #f8f8f8;
+    border: 1px solid #dadadf;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  
+  .PostDetails figure,
+  h5 {
+    margin: 0 0;
+  }
+
+  .Like {
+    color: #7D2B3A;
+  }
+  
+  .Like:hover {
+    color: #c2cab7;
+  }
+  
+  .LikeOutline:hover {
+    color: #7D2B3A;
+  }
