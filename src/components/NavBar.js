@@ -72,19 +72,35 @@ const NavBar = () => {
     </NavLink>
     <NavLink
       className={styles.NavLink}
-      to={`/profiles/${currentUser?.profile_id}`}>
-      <Avatar src={currentUser?.profile_image} text="Profile" height={40}/>
+      to={`/profiles/${currentUser?.profile_id}`}
+      >
+      <Avatar 
+        src={currentUser?.profile_image} 
+        text="Profile" 
+        height={40}
+        />
     </NavLink>
-    <NavLink
+    <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
+        <i className="fas fa-sign-out-alt"></i>Sign out
+    </NavLink>  
+    {/* <NavLink
       className={styles.NavLink}
       to="/"
       onClick={handleSignOut}>
-      <i class="fa-solid fa-right-from-bracket"/>Log out
-    </NavLink>
+      <i class="fa-solid fa-right-from-bracket"/>
+      Log out
+    </NavLink> */}
     </>
 
   const loggedOutNavBar = (
     <>
+    <NavLink
+      className={styles.NavLink}
+      activeClassName={styles.Active}
+      to="/signin"
+      >
+      <i className="fas fa-sign-in-alt"></i>Sign in
+    </NavLink>
     <NavLink
       className={styles.NavLink}
       activeClassName={styles.Active} 
@@ -107,7 +123,7 @@ const NavBar = () => {
         <Navbar.Brand><img src={logo} alt="logo" height="60" />
         </Navbar.Brand>
         </NavLink>
-        {addIcons }
+        {currentUser && addIcons}
         <Navbar.Toggle 
           ref={ref}
           onClick={() => setExpanded(!expanded)} 
@@ -124,9 +140,9 @@ const NavBar = () => {
             />
             Home
             </NavLink>
-            {loggedInNavBar}
-            {loggedOutNavBar}
-            {/* {currentUser ? loggedInNavBar : loggedOutNavBar} */}
+            {/* {loggedInNavBar} */}
+            {/* {loggedOutNavBar} */}
+            {currentUser ? loggedInNavBar : loggedOutNavBar}
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -11,10 +11,10 @@ import axios from "axios";
 const SignUpForm = () => {
   const [signUpData, setSignUpData] = useState({
     username: "",
-    password: "",
-    password_confirm: "",
+    password1: "",
+    password2: "",
   });
-  const { username, password, password_confirm } = signUpData;
+  const { username, password1, password2 } = signUpData;
 
   const [errors, setErrors] = useState({});
 
@@ -64,13 +64,13 @@ const SignUpForm = () => {
               </Alert>
             ))}
 
-              <Form.Group className="mb-3" controlId="password">
+              <Form.Group className="mb-3" controlId="password1">
                 <Form.Label className="d-none">Password</Form.Label>
                 <Form.Control 
                 type="password" 
                 placeholder="Password" 
-                name="password"
-                value={password}
+                name="password1"
+                value={password1}
                 className={styles.Input}
                 onChange={handleChange}
                 />
@@ -79,13 +79,13 @@ const SignUpForm = () => {
               <Alert variant="warning" key={idx}>{message}</Alert>
               ))}
 
-              <Form.Group className="mb-3" controlId="password_confirm">
+              <Form.Group className="mb-3" controlId="password2">
                 <Form.Label className="d-none">Password</Form.Label>
                 <Form.Control 
                 type="password" 
                 placeholder="Confirm Password"
-                name="password_confirm"
-                value={password_confirm}
+                name="password2"
+                value={password2}
                 className={styles.Input}
                 onChange={handleChange} 
                 />
