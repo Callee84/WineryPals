@@ -32,30 +32,30 @@ const PostDetails = (props) => {
                 ...prevPosts,
                 results: prevPosts.results.map((post) => {
                     return post.id === id
-                    ? {...post, likes_count: post.likes_count + 1, like_id: data.id}
-                    : post;
+                        ? {...post, likes_count: post.likes_count + 1, like_id: data.id}
+                        : post;
                 }),
             }));
         } catch(err) {
             console.log(err)
         }
-    }
+    };
 
-    const handleUnLike = async () => {
+    const handleUnlike = async () => {
         try {
-            await axiosRes.delete(`/likes/"${like_id}/`);
+            await axiosRes.delete(`/likes/${like_id}/`);
             setPosts((prevPosts) => ({
                 ...prevPosts,
                 results: prevPosts.results.map((post) => {
                     return post.id === id
-                    ? {...post, likes_count: post.likes_count - 1, like_id: null }
-                    : post;
+                        ? {...post, likes_count: post.likes_count - 1, like_id: null }
+                        : post;
                 }),
             }));
         } catch(err) {
             console.log(err)
         }
-    }
+    };
 
     return (
         <Card className={styles.PostDetails}>
@@ -84,11 +84,11 @@ const PostDetails = (props) => {
                             overlay={<Tooltip>You already like your own post, but you can't show off...</Tooltip>}>
                             <i className={`fas fa-heart ${styles.Like}`} />
                         </OverlayTrigger>
-                    ): like_id ? (
-                        <span onClick={handleUnLike}>
+                    ) : like_id ? (
+                        <span onClick={handleUnlike}>
                             <i className={`fas fa-heart ${styles.Like}`} />
                         </span>
-                    ): currentUser ? (
+                    ) : currentUser ? (
                         <span onClick={handleLike}>
                             <i className={`fas fa-heart ${styles.LikeOutline}`} />
                         </span>
