@@ -13,7 +13,7 @@ const DotMenu = React.forwardRef(({ onClick }, ref) => (
     />
   ));
 
-  export const DropdownPost = () => {
+  export const DropdownPost = ({handleEdit}) => {
     return (
         <Dropdown classname="ml-auto" drop="left">
             <Dropdown.Toggle as={DotMenu}>
@@ -21,8 +21,16 @@ const DotMenu = React.forwardRef(({ onClick }, ref) => (
             </Dropdown.Toggle>
   
             <Dropdown.Menu classname="text-center">
-                <Dropdown.Item classname={styles.DropdownDots}></Dropdown.Item>
-                <Dropdown.Item></Dropdown.Item>
+                <Dropdown.Item classname={styles.DropdownDots}
+                    onClick={handleEdit}
+                    aria-label="edit">
+                        <i className="fas fa-edit"> Edit</i>
+                </Dropdown.Item>
+                <Dropdown.Item className={styles.DropdownDots}
+                    onClick={handleDelete}  
+                    aria-label="delete">
+                        <i className="fas fa-trash"> Delete </i>
+                    </Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>
     );

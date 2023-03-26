@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, Media, OverlayTrigger, Tooltip } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { axiosRes } from '../../api/axiosDefaults';
 import Avatar from '../../components/Avatar';
 import { DropdownPost } from '../../components/DropdownPost';
@@ -25,7 +25,13 @@ const PostDetails = (props) => {
     } = props;
 
     const currentUser = useCurrentUser();
-    const is_owner = currentUser?.username === owner
+    const is_owner = currentUser?.username === owner;
+    const history = useHistory();
+
+    const handleEdit = () => {
+        history.push(`/post/${id}/edit`)
+    }
+
     const handleLike = async () => {
         try {
             const {data} = await axiosRes.post("/likes/", { post:id });
@@ -68,7 +74,7 @@ const PostDetails = (props) => {
                     </Link>
                     <div className="d-flex align-items-center">
                         <span>{updated_on}</span>
-                        {is_owner && postViewPage && <DropdownPost/>}
+                        {is_owner && postViewPage && <DropdownPost handleEdit={handleEdit} handleDelete={handleDelete}/>}
                     </div>
                 </Media>
             </Card.Body>
