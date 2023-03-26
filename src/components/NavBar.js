@@ -12,7 +12,7 @@ const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
-  const {expanded, setExpanded, ref} = useClickOutside(); 
+  const { expanded, setExpanded, ref } = useClickOutside(); 
 
   const handleSignOut = async () => {
     try {
