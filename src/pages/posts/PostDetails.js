@@ -32,6 +32,15 @@ const PostDetails = (props) => {
         history.push(`/post/${id}/edit`)
     }
 
+    const handleDelete = async () => {
+        try {
+            await axiosRes.delete(`/posts/${id}/`);
+            history.goBack();
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
     const handleLike = async () => {
         try {
             const {data} = await axiosRes.post("/likes/", { post:id });
@@ -74,7 +83,7 @@ const PostDetails = (props) => {
                     </Link>
                     <div className="d-flex align-items-center">
                         <span>{updated_on}</span>
-                        {is_owner && postViewPage && <DropdownPost handleEdit={handleEdit} handleDelete={handleDelete}/>}
+                        {is_owner && postViewPage && (<DropdownPost handleEdit={handleEdit} handleDelete={handleDelete}/>)}
                     </div>
                 </Media>
             </Card.Body>

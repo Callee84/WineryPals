@@ -13,7 +13,7 @@ const DotMenu = React.forwardRef(({ onClick }, ref) => (
     />
   ));
 
-  export const DropdownPost = ({handleEdit}) => {
+  export const DropdownPost = ({ handleEdit, handleDelete}) => {
     return (
         <Dropdown classname="ml-auto" drop="left">
             <Dropdown.Toggle as={DotMenu}>
