@@ -21,12 +21,12 @@ const DotMenu = React.forwardRef(({ onClick }, ref) => (
             </Dropdown.Toggle>
   
             <Dropdown.Menu classname="text-center">
-                <Dropdown.Item classname={styles.DropdownDots}
+                <Dropdown.Item classname={styles.DropdownDots} popperConfig={{ strategy: "fixed" }} 
                     onClick={handleEdit}
                     aria-label="edit">
                         <i className="fas fa-edit"> Edit</i>
                 </Dropdown.Item>
-                <Dropdown.Item className={styles.DropdownDots}
+                <Dropdown.Item className={styles.DropdownDots} popperConfig={{ strategy: "fixed" }} 
                     onClick={handleDelete}  
                     aria-label="delete">
                         <i className="fas fa-trash"> Delete </i>
