@@ -6,10 +6,10 @@ import './api/axiosDefaults';
 import SignUpForm from './pages/auth/SignUpForm';
 import LogInForm from './pages/auth/LogInForm';
 import CreatePost from './pages/posts/CreatePost';
-import EditPost from './pages/posts/EditPost';
 import PostViewPage from './pages/posts/PostViewPage';
 import PostsPage from './pages/posts/PostsPage';
 import { useCurrentUser } from './context/CurrentUser';
+import EditPost from './pages/posts/EditPost';
 
 
 
@@ -31,7 +31,7 @@ function App() {
           <Route exact path='/signup' render={() => <SignUpForm />} />
           <Route exact path='/posts/create' render={() => <CreatePost />} />
           <Route exact path='/posts/:id' render={() => <PostViewPage />} />
-          <Route exact path='/posts/:id/edit' render={() => <EditPost />} />
+          <Route exact path='/post/:id/edit' render={() => <EditPost />} />
           <Route exact path='/wines/' render={() => <h1>Wine</h1>} />
           <Route render={() => <h1>Page not found!</h1>} />
         </Switch>

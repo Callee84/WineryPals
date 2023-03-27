@@ -13,7 +13,7 @@ const DotMenu = React.forwardRef(({ onClick }, ref) => (
     />
   ));
 
-  export const DropdownPost = ({ handleEdit, handleDelete}) => {
+  export const DropdownPost = ({ handleEdit, handleDelete }) => {
     return (
         <Dropdown classname="ml-auto" drop="left">
             <Dropdown.Toggle as={DotMenu}>
@@ -24,7 +24,7 @@ const DotMenu = React.forwardRef(({ onClick }, ref) => (
                 <Dropdown.Item classname={styles.DropdownDots} popperConfig={{ strategy: "fixed" }} 
                     onClick={handleEdit}
                     aria-label="edit">
-                        <i className="fas fa-edit"> Edit</i>
+                        <i className="fas fa-edit"> Edit </i>
                 </Dropdown.Item>
                 <Dropdown.Item className={styles.DropdownDots} popperConfig={{ strategy: "fixed" }} 
                     onClick={handleDelete}  
