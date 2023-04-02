@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 
-import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
 import appStyles from "../../App.module.css";
-import styles from "../../styles/PostsPage.module.css";
 import { useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import PostDetails from "./PostDetails";
@@ -40,8 +38,8 @@ function PostsPage({ message, filter = "" }) {
         {hasLoaded ? (
           <>
             {posts.results.length 
-            ? posts.results.map((post) => (
-                <PostDetails key={post.id} {...post} setPosts={setPosts} /> 
+            ? posts.results.map((posts) => (
+                <PostDetails key={posts.id} {...posts} setPosts={setPosts} /> 
               )) 
             : <Container className={appStyles.Content}>
               <Asset src={NoResults} message={message}/>

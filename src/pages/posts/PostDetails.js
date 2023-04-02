@@ -13,14 +13,14 @@ const PostDetails = (props) => {
         owner,
         profile_id,
         profile_image,
-        comments_count,
+        comment_count,
         likes_count,
         like_id,
         title,
         content,
         image,
         updated_on,
-        postViewPage,
+        PostViewPage,
         setPosts,
     } = props;
 
@@ -43,13 +43,13 @@ const PostDetails = (props) => {
 
     const handleLike = async () => {
         try {
-            const {data} = await axiosRes.post("/likes/", { post:id });
+            const {data} = await axiosRes.posts("/likes/", { posts:id });
             setPosts((prevPosts) => ({
                 ...prevPosts,
-                results: prevPosts.results.map((post) => {
-                    return post.id === id
-                        ? {...post, likes_count: post.likes_count + 1, like_id: data.id}
-                        : post;
+                results: prevPosts.results.map((posts) => {
+                    return posts.id === id
+                        ? {...posts, likes_count: posts.likes_count + 1, like_id: data.id}
+                        : posts;
                 }),
             }));
         } catch(err) {
@@ -62,10 +62,10 @@ const PostDetails = (props) => {
             await axiosRes.delete(`/likes/${like_id}/`);
             setPosts((prevPosts) => ({
                 ...prevPosts,
-                results: prevPosts.results.map((post) => {
-                    return post.id === id
-                        ? {...post, likes_count: post.likes_count - 1, like_id: null }
-                        : post;
+                results: prevPosts.results.map((posts) => {
+                    return posts.id === id
+                        ? {...posts, likes_count: posts.likes_count - 1, like_id: null }
+                        : posts;
                 }),
             }));
         } catch(err) {
@@ -83,7 +83,7 @@ const PostDetails = (props) => {
                     </Link>
                     <div className="d-flex align-items-center">
                         <span>{updated_on}</span>
-                        {is_owner && postViewPage && (<DropdownPost handleEdit={handleEdit} handleDelete={handleDelete}/>)}
+                        {is_owner && PostViewPage && (<DropdownPost handleEdit={handleEdit} handleDelete={handleDelete}/>)}
                     </div>
                 </Media>
             </Card.Body>
@@ -117,7 +117,7 @@ const PostDetails = (props) => {
                     <Link to={`/posts/${id}`}>
                         <i className='far fa-comments' />
                     </Link>
-                    {comments_count}
+                    {comment_count}
                 </div>
             </Card.Body>
         </Card>

@@ -62,7 +62,7 @@ const NavBar = () => {
       className={styles.NavLink}
       activeClassName={styles.Active} 
       to="/feed">
-      <i class="fa-solid fa-stream" />Feed
+      <i className="fa-solid fa-stream" />Feed
     </NavLink>
     {wineCellar}
     
@@ -129,8 +129,6 @@ const NavBar = () => {
             />
             Home
             </NavLink>
-            {/* {loggedInNavBar} */}
-            {/* {loggedOutNavBar} */}
             {currentUser ? loggedInNavBar : loggedOutNavBar}
           </Nav>
         </Navbar.Collapse>

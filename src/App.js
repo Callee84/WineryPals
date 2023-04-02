@@ -29,9 +29,9 @@ function App() {
                   filter={`owner__followed__owner__profile=${profile_id}&`} />
           <Route exact path='/signin' render={() => <LogInForm />} />
           <Route exact path='/signup' render={() => <SignUpForm />} />
-          <Route exact path='/posts/create' render={() => <CreatePost />} />
+          <Route exact path='/post/create' render={() => <CreatePost />} />
           <Route exact path='/posts/:id' render={() => <PostViewPage />} />
-          <Route exact path='/post/:id/edit' render={() => <EditPost />} />
+          <Route exact path='/posts/:id/edit' render={() => <EditPost />} />
           <Route exact path='/wines/' render={() => <h1>Wine</h1>} />
           <Route render={() => <h1>Page not found!</h1>} />
         </Switch>
